@@ -20,3 +20,5 @@ before_deploy:
 deploy:
   provider: script
   script: docker push "${IMAGE_NAME}"
+  on:
+    all_branches: true
