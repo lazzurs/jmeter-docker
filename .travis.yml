@@ -20,6 +20,6 @@ before_deploy:
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${TAG}"
 deploy:
   provider: script
-  script: docker push "${IMAGE_NAME}"
+  script: docker push "${IMAGE_NAME}:${TAG}"
   on:
     all_branches: true
