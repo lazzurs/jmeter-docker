@@ -15,10 +15,8 @@ after_script:
 
 before_deploy:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
-  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
-  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${version}"
+  - export TAG=`if [ $TRAVIS_PULL_REQUEST == “false” ] && [ "$TRAVIS_BRANCH" == "master" ] ; then echo "latest"; else echo ${version}; fi`
+  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${TAG}"
 deploy:
   provider: script
-  script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
-  on:
-branch: master
+  script: docker push "${IMAGE_NAME}"
