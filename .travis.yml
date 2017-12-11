@@ -9,6 +9,7 @@ before_script:
   - version="$(awk '$2 == "JMETER_VERSION" { print $3; exit }' Dockerfile)"
 script:
   - docker build --pull --tag "$IMAGE_NAME" .
+  - docker run "$IMAGE_NAME" jmeter --version | grep bah
 
 after_script:
   - docker images
