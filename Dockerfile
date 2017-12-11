@@ -2,7 +2,7 @@ FROM openjdk:8
 
 MAINTAINER Rob Lazzurs <rob@lazzurs.org>
 
-ENV JMETER_VERSION 3.3
+ENV JMETER_VERSION 2.12
 ENV JMETER_HOME /usr/local/apache-jmeter-${JMETER_VERSION}
 ENV JMETER_BIN $JMETER_HOME/bin
 
