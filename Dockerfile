@@ -19,4 +19,6 @@ ENV PATH $PATH:$JMETER_BIN
 
 WORKDIR $JMETER_HOME
 
-CMD ["jmeter"]
+# suggestion: don't run GUI per default as no X11 disp env variable is set
+# so this breaks in docker-compose environments
+# CMD ["jmeter"]
