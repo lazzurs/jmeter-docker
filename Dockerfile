@@ -6,7 +6,7 @@ RUN useradd --create-home -s /bin/bash jmeter
 WORKDIR /home/jmeter
 USER jmeter
 
-ENV JMETER_VERSION 3.3
+ENV JMETER_VERSION 4.0
 ENV JMETER_HOME /home/jmeter/apache-jmeter-${JMETER_VERSION}
 ENV JMETER_BIN $JMETER_HOME/bin
 
